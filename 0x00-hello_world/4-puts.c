@@ -1,6 +1,8 @@
 #include <stdio.h>
-/*
- *Hello C
+/**
+ * main - the main function prints a string
+ *
+ * Return: always 0 
 */
 int main(void)
 {
