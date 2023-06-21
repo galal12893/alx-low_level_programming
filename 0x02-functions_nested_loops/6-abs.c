@@ -1,6 +1,6 @@
 #include "main.h"
 
-/*/
+/**
  * _abs - retruns abs value
  * @n: the int to be checked
  * Return: abs(n) is returned
