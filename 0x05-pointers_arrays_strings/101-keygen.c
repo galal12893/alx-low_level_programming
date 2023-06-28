@@ -1,30 +1,24 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <tinme.h>
 
 /**
- * main - Entry point
- * @argc: number of arguments
- * @argv: array of arguments
- * Return: Always 0 (Success)
+ * main - generated random passwords for 101-crack me
+ *
+ * Return: zero
  */
-int main(int argc, char *argv[])
+
+int main(void)
 {
-	char password[100];
-	int i, sum, n;
+	int sum;
+	char c;
 
-	sum = 0;
 	srand(time(NULL));
-
-	for (i = 0; sum < 2772 - 122; i++)
+	while (sum <= 2645)
 	{
-		n = rand() % 122;
-		if (n > 32)
-		{
-			password[i] = n;
-			sum += password[i];
-		}
+		c = rand() % 128;
+		sum += c;
+		putchar(c);
 	}
-	n = 2772 - sum;
-	password[i] = n;
-	printf("%s", password);
+	putchar(2772 - sum);
 	return (0);
-}
