@@ -30,6 +30,20 @@ void printHexes(char *b, int start, int end)
 	}
 }
 
+void printASCII(char *b, int start, int end)
+{
+	int ch, i = 0;
+
+	while (i < end)
+	{
+		ch = *(b + i + start);
+		if (!isPrintableASCII(ch))
+			ch = 46;
+		printf("%c", ch);
+		i++;
+}
+
+
 
 void print_buffer(char *b, int size)
 {
