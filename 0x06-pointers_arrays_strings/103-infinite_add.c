@@ -11,7 +11,6 @@
  * Return: 0 or the sum
  */
 
-	char *infinite_add(char *n1, char *n2, char *r, int size_r)
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
 	int i = 0, j = 0, k = 0, l = 0, f = 0, s = 0, d = 0;
