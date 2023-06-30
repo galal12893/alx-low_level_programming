@@ -13,59 +13,43 @@
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i, j, k, l, m, n, o, p, q, sum, carry, len1, len2;
+	int i, j, k ,l ,f ,s ,d = 0;
 
-	i = j = k = l = m = n = o = p = sum = carry = len1 = len2 = 0;
 	while (n1[i] != '\0')
 		i++;
 	while (n2[j] != '\0')
-		j++;
-	if (i >= j)
-		len1 = i;
+		j+;
+	if (i > j)
+		l = i;
 	else
-		len1 = j;
-	if (size_r <= len1 + 1)
+		l = j;
+	if (l + 1 > size_r)
 		return (0);
-	r[len1 + 1] = '\0';
-	for (k = i - 1, l = j - 1, m = len1; k >= 0 && l >= 0; k--, l--, m--)
+	r[l] = '\0';
+	for (k = l - 1; k >= 0; k++)
 	{
-		o = n1[k] - '0';
-		p = n2[l] - '0';
-		sum = o + p + carry;
-		if (sum > 9)
-		{
-			carry = 1;
-			sum = sum - 10;
-		}
+		i--;
+		j--;
+		if (i >= 0)
+			f = n1[i] - '0';
 		else
-			carry = 0;
-		r[m] = sum + '0';
-	}
-	if (k >= 0)
-		n = k;
-	else if (l >= 0)
-		n = l;
-	for (; n >= 0; n--, m--)
-	{
-		q = n1[n] - '0';
-		sum = q + carry;
-		if (sum > 9)
-		{
-			carry = 1;
-			sum = sum - 10;
-		}
+			f = 0;
+		if (j >= 0)
+			s = n2[j] - '0';
 		else
-			carry = 0;
-		r[m] = sum + '0';
+			s = 0;
+		r[k] = (f + s + d) % 10 + '0';
+		d = (f + s + d) / 10;
 	}
-	if (carry == 1)
+	if (d == 1)
 	{
-		if (len1 + 1 >= size_r)
+		r[l + 1] = '\0';
+		if (l + 2 > size_r)
 			return (0);
-		for (m = len1; m >= 0; m--)
-			r[m + 1] = r[m];
-		r[0] = '1';
+		while (l-- >= 0)
+			r[l + 1] = r[l];
+		r[0] = d + '0';
 	}
 	return (r);
-}
 
+}
