@@ -20,7 +20,7 @@ char *_strdup(char *str)
 	for (j = 0; str[j] != '\0'; j++)
 		;
 	/*allocate memory for new array*/
-	ar = (char *)malloc(j * sizeof(char));
+	ar = (char *)malloc((j + 1) * sizeof(char));
 	/*check malloc faliure*/
 	if (ar == NULL)
 		return (NULL);
