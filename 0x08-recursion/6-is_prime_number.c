@@ -24,7 +24,7 @@ int is_prime_recursive(int n, int divisor)
 	if (n % divisor == 0 || n % (divisor + 2) == 0)
 		return (0);
 
-	return is_prime_recursive(n, divisor + 6);
+	return (is_prime_recursive(n, divisor + 6));
 }
 
 /**
@@ -35,6 +35,6 @@ int is_prime_recursive(int n, int divisor)
  */
 int is_prime_number(int n)
 {
-	return is_prime_recursive(n, 5);
+	return (is_prime_recursive(n, 5));
 }
 
